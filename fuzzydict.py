@@ -52,13 +52,13 @@ class fuzzydict:
             res += e
         return res
 
-    def exists( key: str ) -> bool:
+    def exists( self, key: str ) -> bool:
         for e in self.elems:
             if key == e.key:
                 return True
         return False
 
-    def insert( key: str, val ) -> bool:
+    def insert( self, key: str, val ) -> bool:
         if self.exists( key ):
             return False
 
@@ -68,7 +68,7 @@ class fuzzydict:
 
         return True
 
-    def delete( key: str ) -> bool:
+    def delete( self, key: str ) -> bool:
 
         i = 0
 
@@ -80,10 +80,10 @@ class fuzzydict:
 
         return False
 
-    def find_all_elems( key: str, similarity_pct: int ) -> list:
+    def find_all_elems( self, key: str, similarity_pct: int ) -> list:
         return self._find_all_elems( key, similarity_pct )
 
-    def find_all( key: str, similarity_pct: int ) -> list:
+    def find_all( self, key: str, similarity_pct: int ) -> list:
 
         res = []
 
@@ -94,7 +94,7 @@ class fuzzydict:
 
         return res
 
-    def _find_all_elems( key: str, similarity_pct: int ) -> list:
+    def _find_all_elems( self, key: str, similarity_pct: int ) -> list:
 
         res = []
 
