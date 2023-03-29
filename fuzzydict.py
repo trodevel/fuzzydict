@@ -52,4 +52,10 @@ class fuzzydict:
             res += e
         return res
 
+    def exists( key: str ) -> bool:
+        for e in self.elems:
+            if key = e.key:
+                return True
+        return False
+
 ##########################################################
