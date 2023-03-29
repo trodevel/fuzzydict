@@ -81,23 +81,26 @@ class fuzzydict:
         return False
 
     def find_all_elems( key: str, similarity_pct: int ) -> list:
+        return self._find_all_elems( key, similarity_pct )
+
+    def find_all( key: str, similarity_pct: int ) -> list:
+
+        res = []
+
+        elems = self._find_all_elems( key, similarity_pct )
+
+        for e in elems:
+            append( res, e.val )
+
+        return res
+
+    def _find_all_elems( key: str, similarity_pct: int ) -> list:
 
         res = []
 
         for e in self.elems:
             if self._is_similar( key, e.key, similarity_pct ):
                 append( res, e )
-
-        return res
-
-    def find_all( key: str, similarity_pct: int ) -> list:
-
-        res = []
-
-        elems = self.find_all_elems( key, similarity_pct )
-
-        for e in elems:
-            append( res, e.val )
 
         return res
 
