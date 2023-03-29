@@ -94,6 +94,9 @@ class fuzzydict:
 
         return res
 
+    def find_best_elem( self, key: str, similarity_pct: int ) -> ( bool, fuzzydict_elem ):
+        return self._find_all_elems( key, similarity_pct )
+
     def _find_all_elems( self, key: str, similarity_pct: int ) -> list:
 
         res = []
@@ -103,6 +106,22 @@ class fuzzydict:
                 append( res, e )
 
         return res
+
+    def _find_best_elem( self, key: str, similarity_pct: int ) -> ( bool, fuzzydict_elem ):
+
+        has_found = False
+        elem      = None
+
+        current_max = 0
+
+        for e in self.elems:
+            ratio = fuzz.ratio( key, e.key )
+            if ratio >= similarity_pct and ratio > current_max:
+                current_max = ratio
+                has_found   = True
+                elem        = e
+
+        return ( has_found, elem )
 
     def _is_similar( s1: str, s2: str, similarity_pct: int ) -> bool:
         ratio = fuzz.ratio( s1, s2 )
