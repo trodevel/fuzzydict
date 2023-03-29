@@ -42,7 +42,7 @@ class fuzzydict:
     elems: list               = None
 
     def __init__( self ):
-        pass
+        self.elems = []
 
     def __str__(self):
         res = ""
