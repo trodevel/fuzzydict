@@ -73,10 +73,10 @@ class fuzzydict:
         i = 0
 
         for e in self.elems:
-            i += 1
             if key == e.key:
                 del self.elems[i]
                 return True
+            i += 1
 
         return False
 
