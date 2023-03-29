@@ -33,7 +33,7 @@ class fuzzydict_elem:
         self.val = val
 
     def __str__( self ):
-        return self.key + "=" + str( self.value )
+        return self.key + "=" + str( self.val )
 
 ##########################################################
 
