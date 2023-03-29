@@ -97,6 +97,14 @@ class fuzzydict:
     def find_best_elem( self, key: str, similarity_pct: int ) -> ( bool, fuzzydict_elem ):
         return self._find_all_elems( key, similarity_pct )
 
+    def find_best( self, key: str, similarity_pct: int ):
+        has_found, elem = self._find_best_elem( key, similarity_pct )
+
+        if has_found:
+            return elem.val
+
+        return ( False, None )
+
     def _find_all_elems( self, key: str, similarity_pct: int ) -> list:
 
         res = []
