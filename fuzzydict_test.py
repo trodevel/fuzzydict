@@ -114,6 +114,20 @@ def test_05():
 
 ##########################################################
 
+def test_06():
+
+    d = create_dict_01()
+
+    word = "developer"
+    similarity = 75
+
+    print( f"test_06: data: {d}" )
+
+    res = d.find_all_elems( word, similarity )
+
+    print( f"test_06: word '{word}', similarity {similarity}, matches = {res}" )
+
+##########################################################
 def test():
 
     test_01()
@@ -121,6 +135,7 @@ def test():
     test_03()
     test_04()
     test_05()
+    test_06()
 
 ##########################################################
 
