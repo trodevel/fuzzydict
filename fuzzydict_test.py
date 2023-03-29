@@ -92,9 +92,25 @@ def test_04():
 
     has_deleted = d.delete( word )
 
-    print( f"test_04: after: {d}" )
+    print( f"test_04: after : {d}" )
 
     print( f"test_04: word '{word}', has deleted = {has_deleted}" )
+
+##########################################################
+
+def test_05():
+
+    d = create_dict_01()
+
+    word = "developerx"
+
+    print( f"test_05: before: {d}" )
+
+    has_deleted = d.delete( word )
+
+    print( f"test_05: after : {d}" )
+
+    print( f"test_05: word '{word}', has deleted = {has_deleted}" )
 
 ##########################################################
 
@@ -104,6 +120,7 @@ def test():
     test_02()
     test_03()
     test_04()
+    test_05()
 
 ##########################################################
 
