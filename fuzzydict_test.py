@@ -82,11 +82,28 @@ def test_03():
 
 ##########################################################
 
+def test_04():
+
+    d = create_dict_01()
+
+    word = "developer"
+
+    print( f"test_04: before: {d}" )
+
+    has_deleted = d.delete( word )
+
+    print( f"test_04: after: {d}" )
+
+    print( f"test_04: word '{word}', has deleted = {has_deleted}" )
+
+##########################################################
+
 def test():
 
     test_01()
     test_02()
     test_03()
+    test_04()
 
 ##########################################################
 
