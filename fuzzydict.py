@@ -58,4 +58,26 @@ class fuzzydict:
                 return True
         return False
 
+    def insert( key: str, val ) -> bool:
+        if self.exists( key ):
+            return False
+
+        e = fuzzydict_elem( key, val )
+
+        append( self.elems, e )
+
+        return True
+
+    def delete( key: str ) -> bool:
+
+        i = 0
+
+        for e in self.elems:
+            i += 1
+            if key == e.key:
+                del self.elems[i]
+                return True
+
+        return False
+
 ##########################################################
