@@ -80,4 +80,20 @@ class fuzzydict:
 
         return False
 
+    def find_all_elems( key: str, similarity_pct: int ) -> list:
+
+        res = []
+
+        for e in self.elems:
+            if self._is_similar( key, e.key, similarity_pct ):
+                append( res, e )
+
+        return res
+
+    def _is_similar( s1: str, s2: str, similarity_pct: int ) -> bool:
+        ratio = fuzz.ratio( s1, s2 )
+        if ratio >= similarity_pct:
+            return True
+        return False
+
 ##########################################################
