@@ -24,7 +24,7 @@ import fuzzydict
 
 ##########################################################
 
-def test_01():
+def create_dict_01():
 
     d = fuzzydict.fuzzydict()
 
@@ -33,6 +33,14 @@ def test_01():
     d.insert( "frontend developer", 3 )
     d.insert( "python developer", 4 )
     d.insert( "manager", 5 )
+
+    return d
+
+##########################################################
+
+def test_01():
+
+    d = create_dict_01()
 
     print( f'test_01: {d}' )
 
