@@ -58,10 +58,35 @@ def test_02():
 
 ##########################################################
 
+def test_02():
+
+    d = create_dict_01()
+
+    word = "developer"
+
+    has_found = d.exists( word )
+
+    print( f"test_02: word '{word}', is found = {has_found} - {d}" )
+
+##########################################################
+
+def test_03():
+
+    d = create_dict_01()
+
+    word = "developerx"
+
+    has_found = d.exists( word )
+
+    print( f"test_03: word '{word}', is found = {has_found} - {d}" )
+
+##########################################################
+
 def test():
 
     test_01()
     test_02()
+    test_03()
 
 ##########################################################
 
