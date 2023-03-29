@@ -64,7 +64,7 @@ class fuzzydict:
 
         e = fuzzydict_elem( key, val )
 
-        append( self.elems, e )
+        self.elems.append( e )
 
         return True
 
@@ -90,7 +90,7 @@ class fuzzydict:
         elems = self._find_all_elems( key, similarity_pct )
 
         for e in elems:
-            append( res, e.val )
+            res.append( e.val )
 
         return res
 
@@ -111,7 +111,7 @@ class fuzzydict:
 
         for e in self.elems:
             if self._is_similar( key, e.key, similarity_pct ):
-                append( res, e )
+                res.append( e )
 
         return res
 
