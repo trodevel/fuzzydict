@@ -49,7 +49,7 @@ class fuzzydict:
         for e in self.elems:
             if res:
                 res += ";"
-            res += e
+            res += str( e )
         return res
 
     def exists( self, key: str ) -> bool:
