@@ -110,7 +110,7 @@ class fuzzydict:
         res = []
 
         for e in self.elems:
-            if self._is_similar( key, e.key, similarity_pct ):
+            if fuzzydict._is_similar( key, e.key, similarity_pct ):
                 res.append( e )
 
         return res

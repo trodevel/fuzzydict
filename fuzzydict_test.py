@@ -125,7 +125,7 @@ def test_06():
 
     res = d.find_all_elems( word, similarity )
 
-    print( f"test_06: word '{word}', similarity {similarity}, matches = {res}" )
+    print( f"test_06: word '{word}', similarity {similarity}, matches = {len(res)}, {res}" )
 
 ##########################################################
 def test():
