@@ -38,6 +38,15 @@ def create_dict_01():
 
 ##########################################################
 
+def to_string_fuzzydict_list( l : list ):
+    res = ""
+    for v in l:
+        if res:
+            res += ","
+        res += str( v )
+
+##########################################################
+
 def test_01():
 
     d = create_dict_01()
@@ -125,7 +134,7 @@ def test_06():
 
     res = d.find_all_elems( word, similarity )
 
-    print( f"test_06: word '{word}', similarity {similarity}, matches = {len(res)}, {res}" )
+    print( f"test_06: word '{word}', similarity {similarity}, matches = {len(res)}, {to_string_fuzzydict_list(res)}" )
 
 ##########################################################
 def test():
