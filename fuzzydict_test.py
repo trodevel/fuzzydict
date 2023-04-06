@@ -44,6 +44,7 @@ def to_string_fuzzydict_list( l : list ):
         if res:
             res += ","
         res += str( v )
+    return res
 
 ##########################################################
 
