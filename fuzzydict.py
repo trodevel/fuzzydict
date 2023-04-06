@@ -101,7 +101,7 @@ class fuzzydict:
         has_found, elem = self._find_best_elem( key, similarity_pct )
 
         if has_found:
-            return elem.val
+            return ( True, elem.val )
 
         return ( False, None )
 
