@@ -61,7 +61,7 @@ def load_v_1( csvfile, filename: str ) -> fuzzydict.fuzzydict:
 def load( filename ):
 
     with open( filename ) as csvfile:
-        return load_file_v1( csvfile, filename )
+        return load_v_1( csvfile, filename )
 
 ##########################################################
 
