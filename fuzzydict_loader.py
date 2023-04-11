@@ -52,7 +52,7 @@ def load_v_1( csvfile, filename: str ) -> fuzzydict.fuzzydict:
 
         res.insert_elem( elem )
 
-    print( "INFO: read {} records from {} (v2)".format( len( db.profiles ), filename ) )
+    print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
 
     return res
 
