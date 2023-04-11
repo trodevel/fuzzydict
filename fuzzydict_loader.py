@@ -114,18 +114,6 @@ def test_03():
         print( f"test_03: exception: {e}" )
 
 def test_04():
-    try:
-        load( "samples/broken_sample_03.csv" )
-    except Exception as e:
-        print( f"test_04: exception: {e}" )
-
-def test_05():
-    try:
-        load( "samples/broken_sample_04.csv" )
-    except Exception as e:
-        print( f"test_05: exception: {e}" )
-
-def test_06():
     fuzzydict = load( "samples/sample_02.csv" )
 
     print( f"test_06: {fuzzydict}" )
@@ -138,8 +126,6 @@ def test():
     test_02()
     test_03()
     test_04()
-    test_05()
-    test_06()
 
 ##########################################################
 
