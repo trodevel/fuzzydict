@@ -48,7 +48,7 @@ def create_dict_02():
     global gl_dict_02
 
     if not gl_dict_02:
-        gl_dict_02 = fuzzydict_loader( 'samples/sample_01.csv' )
+        gl_dict_02 = fuzzydict_loader.load( 'samples/sample_01.csv' )
 
     return gl_dict_02
 
