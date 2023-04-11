@@ -169,7 +169,7 @@ def test_08():
 
     d = create_dict_02()
 
-    word = "developer"
+    word = "java"
     similarity = 75
 
     print( f"test_08: data: {d}" )
