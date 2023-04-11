@@ -97,36 +97,36 @@ def save_file( fuzzydict, filename ):
 ##########################################################
 
 def test_01():
-    fuzzydict = load_fuzzydict( "samples/sample_01.csv" )
+    fuzzydict = load( "samples/sample_01.csv" )
 
     print( f"test_01: {fuzzydict}" )
 
 def test_02():
     try:
-        load_fuzzydict( "samples/broken_sample_01.csv" )
+        load( "samples/broken_sample_01.csv" )
     except Exception as e:
         print( f"test_02: exception: {e}" )
 
 def test_03():
     try:
-        load_fuzzydict( "samples/broken_sample_02.csv" )
+        load( "samples/broken_sample_02.csv" )
     except Exception as e:
         print( f"test_03: exception: {e}" )
 
 def test_04():
     try:
-        load_fuzzydict( "samples/broken_sample_03.csv" )
+        load( "samples/broken_sample_03.csv" )
     except Exception as e:
         print( f"test_04: exception: {e}" )
 
 def test_05():
     try:
-        load_fuzzydict( "samples/broken_sample_04.csv" )
+        load( "samples/broken_sample_04.csv" )
     except Exception as e:
         print( f"test_05: exception: {e}" )
 
 def test_06():
-    fuzzydict = load_fuzzydict( "samples/sample_02.csv" )
+    fuzzydict = load( "samples/sample_02.csv" )
 
     print( f"test_06: {fuzzydict}" )
 
