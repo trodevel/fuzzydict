@@ -52,6 +52,9 @@ class fuzzydict:
             res += str( e )
         return res
 
+    def __len__( self ):
+        return len( self.elems )
+
     def exists( self, key: str, similarity_pct: int = 100 ) -> bool:
         for e in self.elems:
             if fuzzydict._is_similar( key, e.key, similarity_pct ):
