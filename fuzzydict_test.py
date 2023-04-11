@@ -21,6 +21,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import fuzzydict
+import fuzzydict_loader
+
+##########################################################
+
+gl_dict_02 = None
 
 ##########################################################
 
@@ -35,6 +40,17 @@ def create_dict_01():
     d.insert( "manager", 5 )
 
     return d
+
+##########################################################
+
+def create_dict_02():
+
+    global gl_dict_02
+
+    if not gl_dict_02:
+        gl_dict_02 = fuzzydict_loader( 'samples/sample_01.csv' )
+
+    return gl_dict_02
 
 ##########################################################
 
