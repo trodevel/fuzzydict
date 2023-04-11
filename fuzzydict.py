@@ -68,6 +68,9 @@ class fuzzydict:
 
         return True
 
+    def insert( self, elem: fuzzydict_elem ) -> bool:
+        return self.insert( elem.key, elem.value )
+
     def delete( self, key: str ) -> bool:
 
         i = 0
