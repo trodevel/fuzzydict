@@ -138,6 +138,16 @@ def test_06():
     print( f"test_06: word '{word}', similarity {similarity}, matches = {len(res)}, {to_string_fuzzydict_list(res)}" )
 
 ##########################################################
+
+def test_07():
+
+    d = fuzzydict.fuzzydict()
+
+    d.insert_elem( fuzzydict.fuzzydict_elem( "developer", 1 ) )
+
+    print( f'test_07: {d}' )
+
+##########################################################
 def test():
 
     test_01()
@@ -146,6 +156,7 @@ def test():
     test_04()
     test_05()
     test_06()
+    test_07()
 
 ##########################################################
 
