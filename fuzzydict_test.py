@@ -164,6 +164,22 @@ def test_07():
     print( f'test_07: {d}' )
 
 ##########################################################
+
+def test_08():
+
+    d = create_dict_02()
+
+    word = "developer"
+    similarity = 75
+
+    print( f"test_08: data: {d}" )
+
+    res = d.find_all_elems( word, similarity )
+
+    print( f"test_08: word '{word}', similarity {similarity}, matches = {len(res)}, {to_string_fuzzydict_list(res)}" )
+
+##########################################################
+
 def test():
 
     test_01()
