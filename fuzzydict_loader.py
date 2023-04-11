@@ -31,7 +31,7 @@ import fuzzydict       # Ad
 def load_elem_v_1( data: list, filename: str ) -> fuzzydict.fuzzydict_elem:
 
     if len( data ) != 2:
-        raise Exception( f"load_v_1: broken record in {filename}: expected 8 fields, {len(data)} is given" )
+        raise Exception( f"load_v_1: broken record in {filename}: expected 2 fields, {len(data)} is given" )
 
     key                 = data[0]
     val                 = data[1]
