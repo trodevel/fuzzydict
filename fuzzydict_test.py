@@ -31,7 +31,7 @@ gl_dict_02 = None
 
 def create_dict_01():
 
-    d = fuzzydict.fuzzydict()
+    d = fuzzydict.fuzzydict( True )
 
     d.insert( "developer", 1 )
     d.insert( "backend developer", 2 )
@@ -49,6 +49,7 @@ def create_dict_02():
 
     if not gl_dict_02:
         gl_dict_02 = fuzzydict_loader.load( 'samples/sample_01.csv' )
+        gl_dict_02.set_caseinsensitive( True )
 
     return gl_dict_02
 
@@ -171,6 +172,9 @@ def test_08():
 
     d = create_dict_02()
 
+    test_find_all_elems( "test_07", "java", 75 )
+    test_find_all_elems( "test_07", "Java", 75 )
+    test_find_all_elems( "test_07", "jave", 75 )
     test_find_all_elems( "test_07", "jva", 75 )
 
 ##########################################################
