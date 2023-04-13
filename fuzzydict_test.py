@@ -172,10 +172,10 @@ def test_08():
 
     d = create_dict_02()
 
-    test_find_all_elems( "test_07", d, "java", 75 )
-    test_find_all_elems( "test_07", d, "Java", 75 )
-    test_find_all_elems( "test_07", d, "jave", 75 )
-    test_find_all_elems( "test_07", d, "jva", 75 )
+    test_find_all_elems( "test_08", d, "java", 75 )
+    test_find_all_elems( "test_08", d, "Java", 75 )
+    test_find_all_elems( "test_08", d, "jave", 75 )
+    test_find_all_elems( "test_08", d, "jva", 75 )
 
 ##########################################################
 
@@ -183,7 +183,10 @@ def test_09():
 
     d = create_dict_02()
 
-    test_find_all_elems( "test_07", d, "Git", 75 )
+    test_find_all_elems( "test_09", d, "Git", 75 )
+    test_find_all_elems( "test_09", d, "git", 75 )
+    test_find_all_elems( "test_09", d, "gt", 75 )
+    test_find_all_elems( "test_09", d, "Gt", 75 )
 
 ##########################################################
 
