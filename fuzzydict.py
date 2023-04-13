@@ -57,8 +57,8 @@ class fuzzydict:
     def __len__( self ):
         return len( self.elems )
 
-    def set_caseinsensitive( self, caseinsensitive: bool ):
-        self.caseinsensitive = caseinsensitive
+    def set_caseinsensitive( self, is_caseinsensitive: bool ):
+        self.is_caseinsensitive = is_caseinsensitive
 
     def exists( self, key: str, similarity_pct: int = 100 ) -> bool:
         for e in self.elems:
