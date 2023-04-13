@@ -59,7 +59,7 @@ class fuzzydict:
 
     def exists( self, key: str, similarity_pct: int = 100 ) -> bool:
         for e in self.elems:
-            if fuzzydict._is_similar( key, e.key, similarity_pct ):
+            if self._is_similar( key, e.key, similarity_pct ):
                 return True
         return False
 
