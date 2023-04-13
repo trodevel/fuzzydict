@@ -116,7 +116,7 @@ def test_03():
 def test_04():
     fuzzydict = load( "samples/sample_02.csv" )
 
-    print( f"test_06: {fuzzydict}" )
+    print( f"test_04: {fuzzydict}" )
 
 def test_05():
     fuzzydict = load( "samples/sample_02.csv" )
