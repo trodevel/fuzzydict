@@ -169,10 +169,8 @@ def test_08():
 
     d = create_dict_02()
 
-    word = "java"
+    word = "jva"
     similarity = 75
-
-    print( f"test_08: data: {d}" )
 
     res = d.find_all_elems( word, similarity )
 
@@ -180,16 +178,30 @@ def test_08():
 
 ##########################################################
 
+def test_09():
+
+    d = create_dict_02()
+
+    word = "Git"
+    similarity = 75
+
+    res = d.find_all_elems( word, similarity )
+
+    print( f"test_09: word '{word}', similarity {similarity}, matches = {len(res)}, {to_string_fuzzydict_list(res)}" )
+
+##########################################################
+
 def test():
 
-    test_01()
-    test_02()
-    test_03()
-    test_04()
-    test_05()
-    test_06()
-    test_07()
+#    test_01()
+#    test_02()
+#    test_03()
+#    test_04()
+#    test_05()
+#    test_06()
+#    test_07()
     test_08()
+    test_09()
 
 ##########################################################
 
