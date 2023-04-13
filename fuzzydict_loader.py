@@ -80,7 +80,7 @@ def save_direct( fuzzydict, filename ):
 
 ##########################################################
 
-def save_file( fuzzydict, filename ):
+def save( fuzzydict, filename ):
 
     filename_new = filename + ".new"
 
@@ -118,6 +118,13 @@ def test_04():
 
     print( f"test_06: {fuzzydict}" )
 
+def test_05():
+    fuzzydict = load( "samples/sample_02.csv" )
+
+    save( fuzzydict, "samples/sample_02.copy.csv" )
+
+    print( f"test_05: done" )
+
 ##########################################################
 
 def test():
@@ -126,6 +133,7 @@ def test():
     test_02()
     test_03()
     test_04()
+    test_05()
 
 ##########################################################
 
