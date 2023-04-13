@@ -40,9 +40,11 @@ class fuzzydict_elem:
 class fuzzydict:
 
     elems: list               = None
+    is_caseinsensitive: bool  = None
 
-    def __init__( self ):
+    def __init__( self, is_caseinsensitive = False ):
         self.elems = []
+        self.is_caseinsensitive = is_caseinsensitive
 
     def __str__(self):
         res = ""
@@ -116,7 +118,7 @@ class fuzzydict:
         res = []
 
         for e in self.elems:
-            if fuzzydict._is_similar( key, e.key, similarity_pct ):
+            if self._is_similar( key, e.key, similarity_pct ):
                 res.append( e )
 
         return res
@@ -129,7 +131,7 @@ class fuzzydict:
         current_max = 0
 
         for e in self.elems:
-            ratio = fuzz.ratio( key, e.key )
+            ratio = self._ratio( key, e.key )
             if ratio >= similarity_pct and ratio > current_max:
                 current_max = ratio
                 has_found   = True
@@ -137,10 +139,16 @@ class fuzzydict:
 
         return ( has_found, elem )
 
-    def _is_similar( s1: str, s2: str, similarity_pct: int ) -> bool:
-        ratio = fuzz.ratio( s1, s2 )
+    def _is_similar( self, s1: str, s2: str, similarity_pct: int ) -> bool:
+        ratio = self._ratio( s1, s2 )
         if ratio >= similarity_pct:
             return True
         return False
+
+    def _ratio( self, s1: str, s2: str ):
+        if self.is_caseinsensitive:
+            return fuzz.token_set_ratio( s1, s2 )
+
+        return fuzz.ratio( s1, s2 )
 
 ##########################################################
