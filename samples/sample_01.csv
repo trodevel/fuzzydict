@@ -338,7 +338,7 @@ gulp;337
 GWT;338
 Haml;339
 Haskell;340
-;341
+Haxe;341
 Hexagon;342
 Hibernate;343
 Highcharts.js;344
@@ -519,10 +519,10 @@ Opencart;518
 OpenCL;519
 OpenCV;520
 OpenEdge ABL;521
-opengl;522
+OpenGL;522
 OpenGL ES;523
 OpenMP;524
-openstack;525
+Openstack;525
 OpenVPN;526
 OpenVZ;527
 Operations;528
@@ -620,7 +620,7 @@ Realtime;619
 ReasonML;620
 ReasonReact;621
 Recoil;622
-red hat;623
+Red Hat;623
 Red Hat Enterprise Linux;624
 Red Hat Linux;625
 redis;626
@@ -629,8 +629,8 @@ Redux;628
 regex;629
 Reinforcement learning;630
 Require.js;631
-responsys;632
-rest;633
+Responsys;632
+REST;633
 REST Assured;634
 RESTful API;635
 RESTful Web Services.;636
@@ -781,14 +781,14 @@ Twitter Bootstrap;780
 TypeORM;781
 TypeScript;782
 TYPO3;783
-ubuntu;784
+Ubuntu;784
 UIKit;785
 UI/UX design;786
 UMI.CMS;787
 UML;788
 underscore.js;789
 Unity3d;790
-unix;791
+Unix;791
 Unix Shell Scripting;792
 Unreal Engine;793
 UVM;794
