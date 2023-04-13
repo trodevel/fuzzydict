@@ -22,6 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import sys
 import csv
+import os
 
 import fuzzydict       # Ad
 
@@ -65,15 +66,22 @@ def load( filename ):
 
 ##########################################################
 
+def save_elem_v_1( elem: fuzzydict.fuzzydict_elem, ffile, filename: str ):
+
+    line = f"{elem.key};{elem.val}\n"
+
+    ffile.write( line )
+
+##########################################################
+
 def save_direct( fuzzydict, filename ):
 
     f = open( filename, "w" )
 
     i = 0
 
-    for s in fuzzydict.profiles:
-        line = str( fuzzydict.profiles[s] ) + "\n"
-        f.write( line )
+    for s in fuzzydict.elems:
+        save_elem_v_1( s, f, filename )
         i += 1
 
     return i
@@ -92,7 +100,7 @@ def save( fuzzydict, filename ):
         os.rename( filename, filename_old )
     os.rename( filename_new, filename )
 
-    print( "INFO: saved {} records to {}".format( size, filename ) )
+    return size
 
 ##########################################################
 
@@ -121,9 +129,9 @@ def test_04():
 def test_05():
     fuzzydict = load( "samples/sample_02.csv" )
 
-    save( fuzzydict, "samples/sample_02.copy.csv" )
+    size = save( fuzzydict, "samples/sample_02.copy.csv" )
 
-    print( f"test_05: done" )
+    print( f"test_05: saved {size} records to {filename}" )
 
 ##########################################################
 
