@@ -155,6 +155,8 @@ def test_06():
     print( f"test_06: data: {d}" )
 
     test_find_all_elems( "test_06", "developer", 75 )
+    test_find_all_elems( "test_06", "developr", 75 )
+    test_find_all_elems( "test_06", "develpr", 75 )
 
 ##########################################################
 
@@ -197,7 +199,7 @@ def test():
 #    test_03()
 #    test_04()
 #    test_05()
-#    test_06()
+    test_06()
 #    test_07()
     test_08()
     test_09()
