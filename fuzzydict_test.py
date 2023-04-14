@@ -152,8 +152,6 @@ def test_06():
 
     d = create_dict_02()
 
-    print( f"test_06: data: {d}" )
-
     test_find_all_elems( "test_06", d, "developer", 75 )
     test_find_all_elems( "test_06", d, "developr", 75 )
     test_find_all_elems( "test_06", d, "develpr", 75 )
@@ -201,6 +199,14 @@ def test_10():
 
 ##########################################################
 
+def test_11():
+
+    d = create_dict_02()
+
+    test_find_all_elems( "test_11", d, "frontend", 75 )
+
+##########################################################
+
 def test():
 
 #    test_01()
@@ -213,6 +219,7 @@ def test():
     test_08()
     test_09()
     test_10()
+    test_11()
 
 ##########################################################
 
