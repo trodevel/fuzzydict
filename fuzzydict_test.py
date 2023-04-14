@@ -150,7 +150,7 @@ def test_find_all_elems( name: str, d: fuzzydict.fuzzydict, word: str, similarit
 ##########################################################
 def test_06():
 
-    d = create_dict_01()
+    d = create_dict_02()
 
     print( f"test_06: data: {d}" )
 
