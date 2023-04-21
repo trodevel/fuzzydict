@@ -26,6 +26,7 @@ import fuzzydict_loader
 ##########################################################
 
 gl_dict_02 = None
+gl_dict_03 = None
 
 ##########################################################
 
@@ -52,6 +53,18 @@ def create_dict_02():
         gl_dict_02.set_caseinsensitive( True )
 
     return gl_dict_02
+
+##########################################################
+
+def create_dict_03():
+
+    global gl_dict_03
+
+    if not gl_dict_03:
+        gl_dict_03 = fuzzydict_loader.load( 'samples/locations.eng.csv' )
+        gl_dict_03.set_caseinsensitive( True )
+
+    return gl_dict_03
 
 ##########################################################
 
@@ -207,6 +220,16 @@ def test_11():
 
 ##########################################################
 
+def test_12():
+
+    d = create_dict_03()
+
+    test_find_all_elems( "test_12", d, "Munich", 75 )
+    test_find_all_elems( "test_12", d, "Munch", 75 )
+    test_find_all_elems( "test_12", d, "Mnich", 75 )
+
+##########################################################
+
 def test():
 
 #    test_01()
@@ -214,12 +237,13 @@ def test():
 #    test_03()
 #    test_04()
 #    test_05()
-    test_06()
+#    test_06()
 #    test_07()
-    test_08()
-    test_09()
-    test_10()
-    test_11()
+#    test_08()
+#    test_09()
+#    test_10()
+#    test_11()
+    test_12()
 
 ##########################################################
 
