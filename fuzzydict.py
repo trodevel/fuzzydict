@@ -67,17 +67,13 @@ class fuzzydict:
         return False
 
     def insert( self, key: str, val ) -> bool:
-        if self.exists( key ):
-            return False
-
-        e = fuzzydict_elem( key, val )
-
-        self.elems.append( e )
-
-        return True
+        return self._insert( key, val, False )
 
     def insert_elem( self, elem: fuzzydict_elem ) -> bool:
-        return self.insert( elem.key, elem.val )
+        return self._insert( elem.key, elem.val, False )
+
+    def insert_elem_loaded( self, elem: fuzzydict_elem ) -> bool:
+        return self._insert( elem.key, elem.val, True )
 
     def delete( self, key: str ) -> bool:
 
@@ -115,6 +111,16 @@ class fuzzydict:
             return ( True, elem.val )
 
         return ( False, None )
+
+    def _insert( self, key: str, val, is_loaded: bool ) -> bool:
+        if is_loaded == False and self.exists( key ):
+            return False
+
+        e = fuzzydict_elem( key, val )
+
+        self.elems.append( e )
+
+        return True
 
     def _find_all_elems( self, key: str, similarity_pct: int ) -> list:
 

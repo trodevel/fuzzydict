@@ -51,7 +51,7 @@ def load_v_1( csvfile, filename: str ) -> fuzzydict.fuzzydict:
 
         elem = load_elem_v_1( row, filename )
 
-        res.insert_elem( elem )
+        res.insert_elem_loaded( elem )
 
     #print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
 
