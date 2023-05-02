@@ -26,10 +26,12 @@ import os
 
 import fuzzydict       # Ad
 
+from fuzzydict.fuzzydict import fuzzydict_elem
+
 
 ##########################################################
 
-def load_elem_v_1( data: list, filename: str ) -> fuzzydict.fuzzydict_elem:
+def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
 
     if len( data ) != 2:
         raise Exception( f"load_v_1: broken record in {filename}: expected 2 fields, {len(data)} is given" )
@@ -37,7 +39,7 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict.fuzzydict_elem:
     key                 = data[0]
     val                 = data[1]
 
-    return fuzzydict.fuzzydict_elem( key, val )
+    return fuzzydict_elem( key, val )
 
 ##########################################################
 
@@ -66,7 +68,7 @@ def load( filename ):
 
 ##########################################################
 
-def save_elem_v_1( elem: fuzzydict.fuzzydict_elem, ffile, filename: str ):
+def save_elem_v_1( elem: fuzzydict_elem, ffile, filename: str ):
 
     line = f"{elem.key};{elem.val}\n"
 
