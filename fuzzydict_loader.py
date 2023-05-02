@@ -24,7 +24,7 @@ import sys
 import csv
 import os
 
-import fuzzydict       # Ad
+from fuzzydict.fuzzydict import fuzzydict       # Ad
 
 from fuzzydict.fuzzydict import fuzzydict_elem
 
@@ -43,9 +43,9 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
 
 ##########################################################
 
-def load_v_1( csvfile, filename: str ) -> fuzzydict.fuzzydict:
+def load_v_1( csvfile, filename: str ) -> fuzzydict:
 
-    res = fuzzydict.fuzzydict()
+    res = fuzzydict()
 
     reader = csv.reader( csvfile, delimiter=';' )
 
