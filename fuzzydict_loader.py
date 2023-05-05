@@ -47,9 +47,9 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
 
 ##########################################################
 
-def load_v_1( csvfile, filename: str ) -> fuzzydict:
+def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
-    res = fuzzydict()
+    res = fuzzydict( is_caseinsensitive )
 
     reader = csv.reader( csvfile, delimiter=';' )
 
@@ -65,7 +65,7 @@ def load_v_1( csvfile, filename: str ) -> fuzzydict:
 
 ##########################################################
 
-def load( filename ):
+def load( filename, is_caseinsensitive: bool = False ):
 
     with open( filename ) as csvfile:
         return load_v_1( csvfile, filename )
