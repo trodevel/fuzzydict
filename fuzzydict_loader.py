@@ -24,10 +24,14 @@ import sys
 import csv
 import os
 
-from fuzzydict.fuzzydict import fuzzydict       # Ad
-
-from fuzzydict.fuzzydict import fuzzydict_elem
-
+if __package__ is None or __package__ == '':
+    # uses current directory visibility
+    from fuzzydict import fuzzydict
+    from fuzzydict import fuzzydict_elem
+else:
+    # uses current package visibility
+    from . import fuzzydict
+    from . import fuzzydict_elem
 
 ##########################################################
 
