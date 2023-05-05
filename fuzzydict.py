@@ -57,22 +57,27 @@ class fuzzydict:
     def __len__( self ):
         return len( self.elems )
 
-    def exists( self, key: str, similarity_pct: int = 100 ) -> bool:
+    def exists( self, kkey: str, similarity_pct: int = 100 ) -> bool:
+
+        key = self._adjust_key( kkey )
+
         for e in self.elems:
             if self._is_similar( key, e.key, similarity_pct ):
                 return True
         return False
 
-    def insert( self, key: str, val ) -> bool:
-        return self._insert( key, val, False )
+    def insert( self, kkey: str, val ) -> bool:
+        return self._insert( self._adjust_key( kkey ), val, False )
 
     def insert_elem( self, elem: fuzzydict_elem ) -> bool:
-        return self._insert( elem.key, elem.val, False )
+        return self._insert( self._adjust_key( elem.key ), elem.val, False )
 
     def insert_elem_loaded( self, elem: fuzzydict_elem ) -> bool:
-        return self._insert( elem.key, elem.val, True )
+        return self._insert( self._adjust_key( elem.key ), elem.val, True )
 
-    def delete( self, key: str ) -> bool:
+    def delete( self, kkey: str ) -> bool:
+
+        key = self._adjust_key( kkey )
 
         i = 0
 
@@ -84,25 +89,25 @@ class fuzzydict:
 
         return False
 
-    def find_all_elems( self, key: str, similarity_pct: int ) -> list:
-        return self._find_all_elems( key, similarity_pct )
+    def find_all_elems( self, kkey: str, similarity_pct: int ) -> list:
+        return self._find_all_elems( self._adjust_key( kkey ), similarity_pct )
 
-    def find_all( self, key: str, similarity_pct: int ) -> list:
+    def find_all( self, kkey: str, similarity_pct: int ) -> list:
 
         res = []
 
-        elems = self._find_all_elems( key, similarity_pct )
+        elems = self._find_all_elems( self._adjust_key( kkey ), similarity_pct )
 
         for e in elems:
             res.append( e.val )
 
         return res
 
-    def find_best_elem( self, key: str, similarity_pct: int ) -> ( bool, fuzzydict_elem ):
-        return self._find_all_elems( key, similarity_pct )
+    def find_best_elem( self, kkey: str, similarity_pct: int ) -> ( bool, fuzzydict_elem ):
+        return self._find_all_elems( self._adjust_key( kkey ), similarity_pct )
 
-    def find_best( self, key: str, similarity_pct: int ):
-        has_found, elem = self._find_best_elem( key, similarity_pct )
+    def find_best( self, kkey: str, similarity_pct: int ):
+        has_found, elem = self._find_best_elem( self._adjust_key( kkey ), similarity_pct )
 
         if has_found:
             return ( True, elem.val )
