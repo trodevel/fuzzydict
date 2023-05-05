@@ -20,8 +20,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
 
-from fuzzydict.fuzzydict import fuzzydict
-from fuzzydict.fuzzydict import fuzzydict_loader
+import fuzzydict
+import fuzzydict_loader
 
 ##########################################################
 
