@@ -135,7 +135,9 @@ def test_04():
 def test_05():
     fuzzydict = load( "samples/sample_02.csv" )
 
-    size = save( fuzzydict, "samples/sample_02.copy.csv" )
+    filename = "samples/sample_02.copy.csv"
+
+    size = save( fuzzydict, filename )
 
     print( f"test_05: saved {size} records to {filename}" )
 
