@@ -30,8 +30,8 @@ if __package__ is None or __package__ == '':
     from fuzzydict import fuzzydict_elem
 else:
     # uses current package visibility
-    from . import fuzzydict
-    from . import fuzzydict_elem
+    from fuzzydict.fuzzydict import fuzzydict
+    from fuzzydict.fuzzydict import fuzzydict_elem
 
 ##########################################################
 
