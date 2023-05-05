@@ -274,6 +274,7 @@ def test_15():
     test_find_all_elems( "test_15", d, text, 80 )
     test_find_all_elems( "test_15", d, text, 85 )
     test_find_all_elems( "test_15", d, text, 90 )
+    test_find_all_elems( "test_15", d, text, 95 )
 
 ##########################################################
 
