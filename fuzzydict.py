@@ -162,9 +162,6 @@ class fuzzydict:
         return False
 
     def _ratio( self, s1: str, s2: str ):
-        if self.is_caseinsensitive:
-            return fuzz.token_set_ratio( s1, s2 )
-
         return fuzz.ratio( s1, s2 )
 
 ##########################################################
