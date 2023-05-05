@@ -68,7 +68,7 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 def load( filename, is_caseinsensitive: bool = False ):
 
     with open( filename ) as csvfile:
-        return load_v_1( csvfile, filename )
+        return load_v_1( csvfile, filename, is_caseinsensitive )
 
 ##########################################################
 
