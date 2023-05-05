@@ -264,6 +264,20 @@ def test_14():
 
 ##########################################################
 
+def test_15():
+
+    d = create_dict_02()
+
+    text = "node js munich"
+
+    test_find_all_elems( "test_15", d, text, 75 )
+    test_find_all_elems( "test_15", d, text, 80 )
+    test_find_all_elems( "test_15", d, text, 85 )
+    test_find_all_elems( "test_15", d, text, 90 )
+    test_find_all_elems( "test_15", d, text, 95 )
+
+##########################################################
+
 def test():
 
     test_01()
@@ -280,6 +294,7 @@ def test():
     test_12()
     test_13()
     test_14()
+    test_15()
 
 ##########################################################
 

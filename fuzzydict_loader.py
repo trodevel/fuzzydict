@@ -24,12 +24,18 @@ import sys
 import csv
 import os
 
-import fuzzydict       # Ad
-
+if __package__ is None or __package__ == '':
+    # uses current directory visibility
+    from fuzzydict import fuzzydict
+    from fuzzydict import fuzzydict_elem
+else:
+    # uses current package visibility
+    from fuzzydict.fuzzydict import fuzzydict
+    from fuzzydict.fuzzydict import fuzzydict_elem
 
 ##########################################################
 
-def load_elem_v_1( data: list, filename: str ) -> fuzzydict.fuzzydict_elem:
+def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
 
     if len( data ) != 2:
         raise Exception( f"load_v_1: broken record in {filename}: expected 2 fields, {len(data)} is given" )
@@ -37,13 +43,13 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict.fuzzydict_elem:
     key                 = data[0]
     val                 = data[1]
 
-    return fuzzydict.fuzzydict_elem( key, val )
+    return fuzzydict_elem( key, val )
 
 ##########################################################
 
-def load_v_1( csvfile, filename: str ) -> fuzzydict.fuzzydict:
+def load_v_1( csvfile, filename: str ) -> fuzzydict:
 
-    res = fuzzydict.fuzzydict()
+    res = fuzzydict()
 
     reader = csv.reader( csvfile, delimiter=';' )
 
@@ -66,7 +72,7 @@ def load( filename ):
 
 ##########################################################
 
-def save_elem_v_1( elem: fuzzydict.fuzzydict_elem, ffile, filename: str ):
+def save_elem_v_1( elem: fuzzydict_elem, ffile, filename: str ):
 
     line = f"{elem.key};{elem.val}\n"
 
@@ -129,7 +135,9 @@ def test_04():
 def test_05():
     fuzzydict = load( "samples/sample_02.csv" )
 
-    size = save( fuzzydict, "samples/sample_02.copy.csv" )
+    filename = "samples/sample_02.copy.csv"
+
+    size = save( fuzzydict, filename )
 
     print( f"test_05: saved {size} records to {filename}" )
 
