@@ -50,8 +50,7 @@ def create_dict_02():
     global gl_dict_02
 
     if not gl_dict_02:
-        gl_dict_02 = fuzzydict_loader.load( 'samples/sample_01.csv' )
-        gl_dict_02.set_caseinsensitive( True )
+        gl_dict_02 = fuzzydict_loader.load( 'samples/sample_01.csv', True )
 
     return gl_dict_02
 
@@ -62,8 +61,7 @@ def create_dict_03():
     global gl_dict_03
 
     if not gl_dict_03:
-        gl_dict_03 = fuzzydict_loader.load( 'samples/locations.eng.csv' )
-        gl_dict_03.set_caseinsensitive( True )
+        gl_dict_03 = fuzzydict_loader.load( 'samples/locations.eng.csv', True )
 
     return gl_dict_03
 
@@ -74,8 +72,7 @@ def create_dict_04():
     global gl_dict_04
 
     if not gl_dict_04:
-        gl_dict_04 = fuzzydict_loader.load( 'samples/locations.rus.csv' )
-        gl_dict_04.set_caseinsensitive( True )
+        gl_dict_04 = fuzzydict_loader.load( 'samples/locations.rus.csv', True )
 
     return gl_dict_04
 
