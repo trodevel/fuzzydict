@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import fuzzydict
-from fuzzydict_loader import load, save, load_inverse_w_synonyms
+from fuzzydict_loader import load, save, load_inverse, load_inverse_w_synonyms
 
 ##########################################################
 
@@ -61,6 +61,12 @@ def test_06():
 
     print( f"test_06: {fuzzydict}" )
 
+def test_07():
+    try:
+        load( "samples/broken_sample_03.csv" )
+    except Exception as e:
+        print( f"test_07: exception: {e}" )
+
 ##########################################################
 
 def test():
@@ -71,6 +77,7 @@ def test():
     test_04()
     test_05()
     test_06()
+    test_07()
 
 ##########################################################
 
