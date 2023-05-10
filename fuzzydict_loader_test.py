@@ -67,6 +67,11 @@ def test_07():
     except Exception as e:
         print( f"test_07: exception: {e}" )
 
+def test_08():
+    fuzzydict = load_inverse( "samples/sample_04.csv" )
+
+    print( f"test_08: {fuzzydict}" )
+
 ##########################################################
 
 def test():
@@ -78,6 +83,7 @@ def test():
     test_05()
     test_06()
     test_07()
+    test_08()
 
 ##########################################################
 
