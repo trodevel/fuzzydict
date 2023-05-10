@@ -47,6 +47,25 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
 
 ##########################################################
 
+def load_inverse_w_synonyms_elem_v_1( data: list, filename: str ) -> list[fuzzydict_elem]:
+
+    if len( data ) < 2:
+        raise Exception( f"load_inverse_w_synonyms_v_1: broken record in {filename}: expected 2 or more fields, {len(data)} is given" )
+
+    res: list[fuzzydict_elem] = []
+
+    # first row contains an value
+    val                 = data[0]
+
+    for i in range( 1, len( data ) ):
+        key  = data[i]
+        elem = fuzzydict_elem( key, val )
+        res.append( elem )
+
+    return res
+
+##########################################################
+
 def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
     res = fuzzydict( is_caseinsensitive )
