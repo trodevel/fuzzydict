@@ -71,13 +71,18 @@ def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: boo
 
     reader = csv.reader( csvfile, delimiter=';' )
 
+    i = 0
+
     for row in reader:
 
-        elem = load_elem_v_1( row, filename )
+        i += 1
 
-        res.insert_elem_loaded( elem )
+        elems = load_inverse_w_synonyms_elem_v_1( row, filename )
 
-    #print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
+        for elem in elems:
+            res.insert_elem_loaded( elem )
+
+    print( "INFO: read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
 
     return res
 
