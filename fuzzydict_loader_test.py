@@ -56,6 +56,11 @@ def test_05():
 
     print( f"test_05: saved {size} records to {filename}" )
 
+def test_06():
+    fuzzydict = load( "samples/sample_03.csv" )
+
+    print( f"test_06: {fuzzydict}" )
+
 ##########################################################
 
 def test():
@@ -65,6 +70,7 @@ def test():
     test_03()
     test_04()
     test_05()
+    test_06()
 
 ##########################################################
 
