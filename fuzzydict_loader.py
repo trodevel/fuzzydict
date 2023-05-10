@@ -35,13 +35,16 @@ else:
 
 ##########################################################
 
-def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
+def load_elem_v_1( data: list, filename: str, is_inverse: bool ) -> fuzzydict_elem:
 
     if len( data ) != 2:
         raise Exception( f"load_v_1: broken record in {filename}: expected 2 fields, {len(data)} is given" )
 
     key                 = data[0]
     val                 = data[1]
+
+    if is_inverse:
+        key, val = val, key
 
     return fuzzydict_elem( key, val )
 
@@ -66,7 +69,7 @@ def load_inverse_w_synonyms_elem_v_1( data: list, filename: str ) -> list[fuzzyd
 
 ##########################################################
 
-def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
+def load_v_1( csvfile, filename: str, is_caseinsensitive: bool, is_inverse: bool ) -> fuzzydict:
 
     res = fuzzydict( is_caseinsensitive )
 
@@ -74,7 +77,7 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
     for row in reader:
 
-        elem = load_elem_v_1( row, filename )
+        elem = load_elem_v_1( row, filename, is_inverse )
 
         res.insert_elem_loaded( elem )
 
@@ -107,10 +110,22 @@ def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: boo
 
 ##########################################################
 
-def load( filename, is_caseinsensitive: bool = False ):
+def _load( filename: str, is_caseinsensitive: bool, is_inverse: bool ):
 
     with open( filename ) as csvfile:
-        return load_v_1( csvfile, filename, is_caseinsensitive )
+        return load_v_1( csvfile, filename, is_caseinsensitive, is_inverse )
+
+##########################################################
+
+def load( filename, is_caseinsensitive: bool = False ):
+
+    return _load( filename, is_caseinsensitive, False )
+
+##########################################################
+
+def load_inverse( filename, is_caseinsensitive: bool = False ):
+
+    return _load( filename, is_caseinsensitive, True )
 
 ##########################################################
 
