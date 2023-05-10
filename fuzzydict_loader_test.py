@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import fuzzydict
-from fuzzydict_loader import load, save
+from fuzzydict_loader import load, save, load_inverse_w_synonyms
 
 ##########################################################
 
@@ -57,7 +57,7 @@ def test_05():
     print( f"test_05: saved {size} records to {filename}" )
 
 def test_06():
-    fuzzydict = load( "samples/sample_03.csv" )
+    fuzzydict = load_inverse_w_synonyms( "samples/sample_03.csv" )
 
     print( f"test_06: {fuzzydict}" )
 
