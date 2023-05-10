@@ -65,10 +65,35 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
 ##########################################################
 
+def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
+
+    res = fuzzydict( is_caseinsensitive )
+
+    reader = csv.reader( csvfile, delimiter=';' )
+
+    for row in reader:
+
+        elem = load_elem_v_1( row, filename )
+
+        res.insert_elem_loaded( elem )
+
+    #print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
+
+    return res
+
+##########################################################
+
 def load( filename, is_caseinsensitive: bool = False ):
 
     with open( filename ) as csvfile:
         return load_v_1( csvfile, filename, is_caseinsensitive )
+
+##########################################################
+
+def load_inverse_w_synonyms( filename, is_caseinsensitive: bool = False ):
+
+    with open( filename ) as csvfile:
+        return load_inverse_w_synonyms_v_1( csvfile, filename, is_caseinsensitive )
 
 ##########################################################
 
