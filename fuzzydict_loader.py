@@ -33,6 +33,8 @@ else:
     from fuzzydict.fuzzydict import fuzzydict
     from fuzzydict.fuzzydict import fuzzydict_elem
 
+from print_helpers.helpers import print_fatal, print_error, print_warning, print_info, print_debug
+
 ##########################################################
 
 def load_elem_v_1( data: list, filename: str, is_inverse: bool ) -> fuzzydict_elem:
