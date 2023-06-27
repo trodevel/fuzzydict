@@ -83,7 +83,7 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool, is_inverse: bool
 
         res.insert_elem_loaded( elem )
 
-    #print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
+    #print_info( "read {} records from {} (v1)".format( len( res ), filename ) )
 
     return res
 
@@ -106,7 +106,7 @@ def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: boo
         for elem in elems:
             res.insert_elem_loaded( elem )
 
-    print( "INFO: read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
+    print_info( "read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
 
     return res
 
