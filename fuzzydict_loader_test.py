@@ -22,6 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import fuzzydict
 from fuzzydict_loader import load, save, load_inverse, load_inverse_w_synonyms
+from print_helpers.helpers import set_log_level, DEBUG
 
 ##########################################################
 
@@ -75,6 +76,8 @@ def test_08():
 ##########################################################
 
 def test():
+
+    set_log_level( DEBUG )
 
     test_01()
     test_02()
