@@ -35,7 +35,7 @@ else:
 
 ##########################################################
 
-def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
+def load_elem_v_1( data: list, filename: str, is_inverse: bool ) -> fuzzydict_elem:
 
     if len( data ) != 2:
         raise Exception( f"load_v_1: broken record in {filename}: expected 2 fields, {len(data)} is given" )
@@ -43,11 +43,33 @@ def load_elem_v_1( data: list, filename: str ) -> fuzzydict_elem:
     key                 = data[0]
     val                 = data[1]
 
+    if is_inverse:
+        key, val = val, key
+
     return fuzzydict_elem( key, val )
 
 ##########################################################
 
-def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
+def load_inverse_w_synonyms_elem_v_1( data: list, filename: str ) -> list[fuzzydict_elem]:
+
+    if len( data ) < 2:
+        raise Exception( f"load_inverse_w_synonyms_v_1: broken record in {filename}: expected 2 or more fields, {len(data)} is given" )
+
+    res: list[fuzzydict_elem] = []
+
+    # first row contains an value
+    val                 = data[0]
+
+    for i in range( 1, len( data ) ):
+        key  = data[i]
+        elem = fuzzydict_elem( key, val )
+        res.append( elem )
+
+    return res
+
+##########################################################
+
+def load_v_1( csvfile, filename: str, is_caseinsensitive: bool, is_inverse: bool ) -> fuzzydict:
 
     res = fuzzydict( is_caseinsensitive )
 
@@ -55,7 +77,7 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
     for row in reader:
 
-        elem = load_elem_v_1( row, filename )
+        elem = load_elem_v_1( row, filename, is_inverse )
 
         res.insert_elem_loaded( elem )
 
@@ -65,10 +87,52 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
 
 ##########################################################
 
-def load( filename, is_caseinsensitive: bool = False ):
+def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: bool ) -> fuzzydict:
+
+    res = fuzzydict( is_caseinsensitive )
+
+    reader = csv.reader( csvfile, delimiter=';' )
+
+    i = 0
+
+    for row in reader:
+
+        i += 1
+
+        elems = load_inverse_w_synonyms_elem_v_1( row, filename )
+
+        for elem in elems:
+            res.insert_elem_loaded( elem )
+
+    print( "INFO: read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
+
+    return res
+
+##########################################################
+
+def _load( filename: str, is_caseinsensitive: bool, is_inverse: bool ):
 
     with open( filename ) as csvfile:
-        return load_v_1( csvfile, filename, is_caseinsensitive )
+        return load_v_1( csvfile, filename, is_caseinsensitive, is_inverse )
+
+##########################################################
+
+def load( filename, is_caseinsensitive: bool = False ):
+
+    return _load( filename, is_caseinsensitive, False )
+
+##########################################################
+
+def load_inverse( filename, is_caseinsensitive: bool = False ):
+
+    return _load( filename, is_caseinsensitive, True )
+
+##########################################################
+
+def load_inverse_w_synonyms( filename, is_caseinsensitive: bool = False ):
+
+    with open( filename ) as csvfile:
+        return load_inverse_w_synonyms_v_1( csvfile, filename, is_caseinsensitive )
 
 ##########################################################
 
@@ -107,53 +171,5 @@ def save( fuzzydict, filename ):
     os.rename( filename_new, filename )
 
     return size
-
-##########################################################
-
-def test_01():
-    fuzzydict = load( "samples/sample_01.csv" )
-
-    print( f"test_01: {fuzzydict}" )
-
-def test_02():
-    try:
-        load( "samples/broken_sample_01.csv" )
-    except Exception as e:
-        print( f"test_02: exception: {e}" )
-
-def test_03():
-    try:
-        load( "samples/broken_sample_02.csv" )
-    except Exception as e:
-        print( f"test_03: exception: {e}" )
-
-def test_04():
-    fuzzydict = load( "samples/sample_02.csv" )
-
-    print( f"test_04: {fuzzydict}" )
-
-def test_05():
-    fuzzydict = load( "samples/sample_02.csv" )
-
-    filename = "samples/sample_02.copy.csv"
-
-    size = save( fuzzydict, filename )
-
-    print( f"test_05: saved {size} records to {filename}" )
-
-##########################################################
-
-def test():
-
-    test_01()
-    test_02()
-    test_03()
-    test_04()
-    test_05()
-
-##########################################################
-
-if __name__ == "__main__":
-   test()
 
 ##########################################################

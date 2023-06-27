@@ -28,6 +28,7 @@ import fuzzydict_loader
 gl_dict_02 = None
 gl_dict_03 = None
 gl_dict_04 = None
+gl_dict_05 = None
 
 ##########################################################
 
@@ -75,6 +76,17 @@ def create_dict_04():
         gl_dict_04 = fuzzydict_loader.load( 'samples/locations.rus.csv', True )
 
     return gl_dict_04
+
+##########################################################
+
+def create_dict_05():
+
+    global gl_dict_05
+
+    if not gl_dict_05:
+        gl_dict_05 = fuzzydict_loader.load_inverse_w_synonyms( 'samples/sample_03.csv', True )
+
+    return gl_dict_05
 
 ##########################################################
 
@@ -275,6 +287,20 @@ def test_15():
 
 ##########################################################
 
+def test_16():
+
+    d = create_dict_05()
+
+    text = "photoshop"
+
+    test_find_all_elems( "test_16", d, text, 75 )
+    test_find_all_elems( "test_16", d, text, 80 )
+    test_find_all_elems( "test_16", d, text, 85 )
+    test_find_all_elems( "test_16", d, text, 90 )
+    test_find_all_elems( "test_16", d, text, 95 )
+
+##########################################################
+
 def test():
 
     test_01()
@@ -292,6 +318,7 @@ def test():
     test_13()
     test_14()
     test_15()
+    test_16()
 
 ##########################################################
 
