@@ -33,6 +33,8 @@ else:
     from fuzzydict.fuzzydict import fuzzydict
     from fuzzydict.fuzzydict import fuzzydict_elem
 
+from print_helpers.helpers import print_fatal, print_error, print_warning, print_info, print_debug
+
 ##########################################################
 
 def load_elem_v_1( data: list, filename: str, is_inverse: bool ) -> fuzzydict_elem:
@@ -81,7 +83,7 @@ def load_v_1( csvfile, filename: str, is_caseinsensitive: bool, is_inverse: bool
 
         res.insert_elem_loaded( elem )
 
-    #print( "INFO: read {} records from {} (v1)".format( len( res ), filename ) )
+    #print_info( "read {} records from {} (v1)".format( len( res ), filename ) )
 
     return res
 
@@ -104,7 +106,7 @@ def load_inverse_w_synonyms_v_1( csvfile, filename: str, is_caseinsensitive: boo
         for elem in elems:
             res.insert_elem_loaded( elem )
 
-    print( "INFO: read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
+    print_info( "read {}/{} lines/records from {} (v1)".format( i, len( res ), filename ) )
 
     return res
 
